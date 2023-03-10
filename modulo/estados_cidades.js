@@ -22544,7 +22544,7 @@ const getEstadoRegiao = (regiaoEstado) => {
    return resultadoFinalJson
 }
 
-//console.log(getEstadoRegiao('Norte'))
+
 
 const getCapitaisPais = () => {
    
@@ -22575,7 +22575,6 @@ const getCapitaisPais = () => {
 
 }
 
-//console.log(getCapitaisPais())
 
 const getCidades = (siglaEstado) => {
 
@@ -22590,7 +22589,7 @@ const getCidades = (siglaEstado) => {
          estado.cidades.forEach(function(cidades){
             listaCidades.push(cidades.nome)
 
-            let resultadoFinal = {
+            let resultadoFinal = {     
                uf: estado.sigla,
                nome: estado.nome,
                quantidade_cidade: estado.cidades.length,
@@ -22604,4 +22603,11 @@ const getCidades = (siglaEstado) => {
    return resultadoFinalJson;
 }
 
-//console.log(getCidades(''))
+module.exports = {
+   getCidades,
+   getCapitaisPais,
+   getEstadoRegiao,
+   getCapitalEstado,
+   getDadosEstado,
+   getListaDeEstados
+}
