@@ -22488,6 +22488,7 @@ const getListaDeEstados = (estado) => {
 
 const getDadosEstado = (siglaDoEstado) => {
    let objectEstado = {}
+   let status = false
 
    estadosECidades.estados.forEach(function (estado) {
       if (estado.sigla == siglaDoEstado) {
@@ -22495,18 +22496,23 @@ const getDadosEstado = (siglaDoEstado) => {
             sigla: estado.sigla,
             nome: estado.nome,
             capital: estado.capital,
-            regiao: estado.regiao
+            regiao: estado.regiao,
          }
+         status = true
       }
    })
-   return objectEstado;
-}
 
-//console.log(getDadosEstado('SP'))
+   if(status == true){
+      return objectEstado
+   }else{
+      return status
+   }
+}
 
 const getCapitalEstado = (siglaDoEstado) => {
 
    let capitalEstados = {}
+   let status = false
 
    estadosECidades.estados.forEach(function (estado) {
       if (estado.sigla == siglaDoEstado) {
@@ -22515,17 +22521,24 @@ const getCapitalEstado = (siglaDoEstado) => {
             nome: estado.nome,
             capital: estado.capital
          }
+         status = true;
       }
    })
-
-   return capitalEstados
+   if(status == true){
+      return capitalEstados
+   }else{
+      return status
+   }
+   
 }
 // console.log(getCapitalEstado('BA'))
 
-const getEstadoRegiao = (regiaoEstado) => {
+const getEstadoRegiao = (regiao) => {
+
+   let regiaoEstado = regiao[0].toUpperCase() + regiao.substring(1).toLowerCase()
    let resultadoFinalJson = {}
    let caracteristicas = []
-
+   let status = false
 
    estadosECidades.estados.forEach(function (estado) {
       if (estado.regiao == regiaoEstado) {
@@ -22538,10 +22551,15 @@ const getEstadoRegiao = (regiaoEstado) => {
             regiao: estado.regiao,
             estados: caracteristicas
          }
+         status = true
       }
    })
 
-   return resultadoFinalJson
+   if(status == true){
+      return resultadoFinalJson
+   }else{
+      return status
+   }
 }
 
 
